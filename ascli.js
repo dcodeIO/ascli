@@ -44,7 +44,7 @@ module.exports = (function() {
      * @returns {string}
      */
     function ascli(title, appendix) {
-        title = title || name;
+        title = title || ascli.appName;
         appendix = appendix || "";
         var lines = ["", "", ""], c, a, j, ac = "";
         for (var i=0; i<title.length; i++) {
@@ -61,7 +61,7 @@ module.exports = (function() {
         }
         for (i=0; i<lines.length; i++) lines[i] = lines[i]+"\x1B[0m";
         lines[1] += " "+appendix;
-        if (lines[lines.length-1].trim() === '') {
+        if (lines[lines.length-1].strip.trim().length == 0) {
             lines.pop();
         }
         return '\n'+lines.join('\n')+'\n';
