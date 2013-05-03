@@ -77,10 +77,11 @@ module.exports = (function() {
      * Prints a banner to console.
      * @param {string=} title Title in dojo alphabet
      * @param {string=} appendix Title appendix
-     * @returns {string}
+     * @returns {Function} ascli
      */
     ascli.banner = function(title, appendix) {
         console.log(ascli(title, appendix));
+        return ascli;
     };
 
     /**
@@ -130,13 +131,16 @@ module.exports = (function() {
     /**
      * opt.js
      * @param {Array.<string>=} argv
-     * @returns {{node: *, script: null, argv: Array, opt: {}}}
+     * @returns {{node: string, script: string, argv: Array.<string>, opt: Object.<string,boolean|string>}}
      */
-    ascli.opt = function(argv) {
-        var opt={},arg,p;argv=Array.prototype.slice.call(argv||process.argv);for(var i=2;i<argv.length;i++)if(argv[i].charAt(0)=='-')
-            ((p=(arg=(""+argv.splice(i--,1)).replace(/^[\-]+/,'')).indexOf("="))>0?opt[arg.substring(0,p)]=arg.substring(p+1):opt[arg]=true);
-        return {'node':argv[0],'script':argv[1],'argv':argv.slice(2),'opt':opt};
-    };
+    ascli.optjs = require("optjs");
+    
+    // Pre-run it
+    var opt = ascli.optjs();
+    ascli.node = opt.node;
+    ascli.script = opt.script;
+    ascli.argv = opt.argv;
+    ascli.opt = opt.opt;
     
     // Expose colour.js
     ascli.colour = ascli.colors = colour;

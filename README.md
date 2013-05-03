@@ -19,7 +19,7 @@ Usage
 -----
 ```js
 var ascli = require("ascli").app("myApp");
-ascli.banner(ascli.name.green.bold, "v1.0.0 by Foo Bar <foobar@example.com>");
+ascli.banner(ascli.appName.green.bold, "v1.0.0 by Foo Bar <foobar@example.com>");
 console.log("Hello!");
 // If it worked:
 ascli.ok("It worked!");
@@ -50,7 +50,13 @@ ascli automatically indents all console output by one space just because it look
 
 Parsing command line arguments
 ------------------------------
-[opt.js](https://github.com/dcodeIO/opt.js) is included as `ascli.opt()`.
+[opt.js](https://github.com/dcodeIO/opt.js) will be pre-run on the `ascli` namespace and also exposed as `ascli.optjs()`.
+```js
+ascli.node   // Node executable
+ascli.script // Executed script
+ascli.opt    // Options as a hash
+ascli.argv   // Remaining non-option arguments
+```
 
 License
 -------
