@@ -3,7 +3,7 @@
 A uniform foundation for unobtrusive (ASCII art in) cli apps.
 
 <p align="center">
-    ![example](https://raw.github.com/dcodeIO/ascli/master/example.png)
+    <img src="https://raw.github.com/dcodeIO/ascli/master/example.png" alt="example" />
 </p>
 
 **Why?** Some of us are not only programmers but also part-time artist. So am I. This is good. However, to limit myself
