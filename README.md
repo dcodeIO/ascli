@@ -45,11 +45,12 @@ ascli automatically looks up and translates ANSI terminal colors applied to the 
 [colour.js](https://github.com/dcodeIO/colour.js) which is also exposed as a property of the ascli namespace:
 `ascli.colour` / `ascli.colors`. Also means: You don't need another ANSI terminal colors dependency.
 
-#### Parsing command line arguments
-[opt.js](https://github.com/dcodeIO/opt.js) is included as `ascli.opt()`.
-
 #### Indentation
 ascli automatically indents all console output by one space just because it looks better with the banner.
+
+Parsing command line arguments
+------------------------------
+[opt.js](https://github.com/dcodeIO/opt.js) is included as `ascli.opt()`.
 
 License
 -------

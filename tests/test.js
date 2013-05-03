@@ -1,4 +1,4 @@
-var ascli = require("../ascli.js").app("ascli");
+var ascli = require("../ascli.js").app("myapp");
 
 ascli.banner("straight".green.bold, "through ascli");
 console.log("Hello world!".white.bold);

@@ -61,6 +61,9 @@ module.exports = (function() {
         }
         for (i=0; i<lines.length; i++) lines[i] = lines[i]+"\x1B[0m";
         lines[1] += " "+appendix;
+        if (lines[lines.length-1].trim() === '') {
+            lines.pop();
+        }
         return '\n'+lines.join('\n')+'\n';
     }
 
@@ -68,7 +71,7 @@ module.exports = (function() {
      * App name.
      * @type {string}
      */
-    ascli.name = "app";
+    ascli.appName = "app";
 
     /**
      * Prints a banner to console.
@@ -83,7 +86,7 @@ module.exports = (function() {
     /**
      * Uses another alphabet.
      * @param {string|Object.<string,Array.<string>} alpha File name or alphabet to use
-     * @returns ascli
+     * @returns {Function} ascli
      */
     ascli.use = function(alpha) {
         if (typeof alpha === 'string') {
@@ -97,10 +100,10 @@ module.exports = (function() {
     /**
      * Sets the app name.
      * @param {string} appName
-     * @returns ascli
+     * @returns {Function} ascli
      */
     ascli.app = function(appName) {
-        ascli.name = appName;
+        ascli.appName = appName;
         return ascli;
     };
 
@@ -110,7 +113,7 @@ module.exports = (function() {
      * @param {number=} code Exit code, defaults to 0
      */
     ascli.ok = function(msg, code) {
-        process.stderr.write('\n '+ascli.name.green.bold+' OK'.white.bold+(msg ? ' '+msg : '')+'\n');
+        process.stderr.write('\n '+ascli.appName.green.bold+' OK'.white.bold+(msg ? ' '+msg : '')+'\n');
         process.exit(typeof code != 'undefined' ? code : 0);
     };
 
@@ -120,7 +123,7 @@ module.exports = (function() {
      * @param {number=} code Exit code
      */
     ascli.fail = function(msg, code) {
-        process.stderr.write('\n '+ascli.name.red.bold+' ERROR'.white.bold+(msg ? ' '+msg : '')+'\n');
+        process.stderr.write('\n '+ascli.appName.red.bold+' ERROR'.white.bold+(msg ? ' '+msg : '')+'\n');
         process.exit(typeof code != 'undefined' ? code : 1);
     };
 
