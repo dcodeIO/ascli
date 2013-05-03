@@ -1,15 +1,13 @@
 ![ascli](https://raw.github.com/dcodeIO/ascli/master/ascli.png)
 =====
-A uniform foundation for unobtrusive (ASCII art in) cli apps.
-
-<p align="center">
-    <img src="https://raw.github.com/dcodeIO/ascli/master/example.png" alt="example" />
-</p>
-
 **Why?** Some of us are not only programmers but also part-time artist. So am I. This is good. However, to limit myself
 a bit to a straight look of my CLI apps, I've created ascli based on the thought of not making things too fancy but
 still looking good. So, basically, this package is meant to be used by me but if you like my interpretation of
 unobtrusiveness and ease-of-use ... You are welcome!
+
+<p align="center">
+    <img src="https://raw.github.com/dcodeIO/ascli/master/example.png" alt="example" />
+</p>
 
 Installation
 ------------
