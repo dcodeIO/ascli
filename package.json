@@ -1,7 +1,7 @@
 {
     "name": "ascli",
     "description": "A uniform foundation for unobtrusive (ASCII art in) cli apps.",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "author": "Daniel Wirtz <dcode@dcode.io>",
     "repository": {
         "type": "url",

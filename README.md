@@ -16,13 +16,16 @@ Installation
 Usage
 -----
 ```js
-var ascli = require("ascli").app("myApp");
-ascli.banner(ascli.appName.green.bold, "v1.0.0 by Foo Bar <foobar@example.com>");
-console.log("Hello!");
+var cli = require("ascli")("myAppName");
+cli.banner(ascli.appName.green.bold, "v1.0.0 by Foo Bar <foobar@example.com>");
+cli.log("Hello!");
+cli.info("World!");
+cli.warn("of");
+cli.error("ascli.");
 // If it worked:
-ascli.ok("It worked!");
+cli.ok("It worked!", /* optional exit code */ 0);
 // If it didn't:
-ascli.fail("Nope, sorry.", /* exit code */ 1);
+cli.fail("Nope, sorry.", /* optional exit code */ 1);
 ```
 
 #### Using another alphabet
@@ -30,10 +33,10 @@ By default ascli uses a modified version of the **straight** ASCII alphabet. If 
 replace it:
 
 ```js
-ascli.use("/path/to/my/alphabet.json");
+cli.use("/path/to/my/alphabet.json");
 // or
 var myAlphabet = { ... };
-ascli.use(myAlphabet);
+cli.use(myAlphabet);
 ```
 
 See the `alphabet/` directory for an example.
@@ -41,19 +44,19 @@ See the `alphabet/` directory for an example.
 #### Using colors
 ascli automatically looks up and translates ANSI terminal colors applied to the title string. For that it depends on
 [colour.js](https://github.com/dcodeIO/colour.js) which is also exposed as a property of the ascli namespace:
-`ascli.colour` / `ascli.colors`. Also means: You don't need another ANSI terminal colors dependency.
+`cli.colour` / `cli.colors`. Also means: You don't need another ANSI terminal colors dependency.
 
 #### Indentation
-ascli automatically indents all console output by one space just because it looks better with the banner.
+`cli.log` etc. indents all console output by one space just because it looks better with the banner.
 
 Parsing command line arguments
 ------------------------------
-[opt.js](https://github.com/dcodeIO/opt.js) will be pre-run on the `ascli` namespace and also exposed as `ascli.optjs()`.
+[opt.js](https://github.com/dcodeIO/opt.js) will be pre-run on the `cli` namespace and also exposed as `cli.optjs()`.
 ```js
-ascli.node   // Node executable
-ascli.script // Executed script
-ascli.opt    // Options as a hash
-ascli.argv   // Remaining non-option arguments
+cli.node   // Node executable
+cli.script // Executed script
+cli.opt    // Options as a hash
+cli.argv   // Remaining non-option arguments
 ```
 
 License
