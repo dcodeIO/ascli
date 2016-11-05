@@ -18,8 +18,8 @@
     ],
     "main": "./ascli.js",
     "dependencies": {
-        "colour": "latest",
-        "optjs": "latest"
+        "colour": "~0.7.1",
+        "optjs": "~3.2.2"
     },
     "scripts": {
         "test": "node tests/test.js"
